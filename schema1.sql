@@ -44,25 +44,24 @@ INSERT INTO users (first_name,last_name,email)
     ('don','foki','donf@gmail.com')
 ;
 
-INSERT INTO blogs (title_blog, description)
-    VALUES ('PHP','Creating blogs for users by using PHP'),
-    ('SQL','Automatic Updating for TIMESTAMP'),
-    ('C++','Object'),
-    ('C#', 'Integer')
+INSERT INTO blogs (user_id, title_blog, description)
+    VALUES (1,'PHP','Creating blogs for users by using PHP'),
+    (3,'SQL','Automatic Updating for TIMESTAMP'),
+    (5,'C++','Object'),
+    (8,'C#', 'Integer')
 ;
 
-INSERT INTO posts (title_post, body)
-    VALUES ('C++','It is very hard to find correct information'),
-   ('SQL','Automatic Initialization and Updating for TIMESTAMP and DATETIME'),
-   ('SQL','Installing and Upgrading MySQL'),
-   ('SQL','VARCHAR'),
-   ('C++','How to use objects')
+INSERT INTO posts (blog_id,title_post, body)
+    VALUES (3,'C++','It is very hard to find correct information'),
+    (2,'SQL','Automatic Initialization and Updating for TIMESTAMP and DATETIME'),
+    (2,'SQL','Installing and Upgrading MySQL'),
+    (2,'SQL','VARCHAR'),
+    (3,'C++','How to use objects')
 ;
 
-SELECT *
-    FROM users u
-    LEFT JOIN blogs b ON u.id=b.blog_id
-    LEFT JOIN posts p ON b.blog_id=p.post_id
+SELECT *FROM users, blogs, posts 
+    WHERE blogs.user_id =users.id AND posts.blog_id =blogs.id
 ;
+
 
 
