@@ -59,6 +59,12 @@ INSERT INTO posts (blog_id,title_post, body)
     (3,'C++','How to use objects')
 ;
 
+UPDATE blogs SET created = '2017-06-06' WHERE id=2;
+
+UPDATE blogs SET created = '2017-06-07' WHERE id=3;
+
+
+
 SELECT *FROM users, blogs, posts 
     WHERE blogs.user_id =users.id AND posts.blog_id =blogs.id
 ;
