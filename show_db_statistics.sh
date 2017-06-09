@@ -21,6 +21,8 @@ echo "Newest blog: $newest_blog"
 
 
 echo POSTS:
+average_posts_per_blog=$(echo "SELECT x/y FROM amount_blogs, amount_posts" | mysql -u mike -p'P1ok2ak!' database1 | tail -1)
+echo "Average posts per blog:$average_posts_per_blog"
 blogs_with_no_posts=$(echo "SELECT COUNT(*) FROM blogs WHERE id NOT IN (SELECT blog_id from posts)" | mysql -u mike -p'P1ok2ak!' database1 | tail -1)
 echo "Blogs with no posts: $blogs_with_no_posts"
 longest_blog_title=$(echo "SELECT MAX(CHAR_LENGTH(title_blog)) FROM blogs" | mysql -u mike -p'P1ok2ak!' database1 | tail -1)
