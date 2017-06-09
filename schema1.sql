@@ -63,6 +63,10 @@ UPDATE blogs SET created = '2017-06-06' WHERE id=2;
 
 UPDATE blogs SET created = '2017-06-07' WHERE id=3;
 
+CREATE VIEW amount_posts AS SELECT COUNT(*) AS x FROM posts;
+CREATE VIEW amount_blogs AS SELECT COUNT(*) AS y FROM blogs;
+
+
 
 
 SELECT *FROM users, blogs, posts 
